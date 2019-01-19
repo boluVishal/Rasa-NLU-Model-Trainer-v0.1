@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rasa NLU Model Trainer</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <center> <h1>Rasa NLU Model Trainer</h1></center>
+    <fieldset>
+      <form action="/" method="post">
+        <textarea name="trainingData" rows="10" class="ghost-input" style="border:solid 1px orange;" cols="30" placeholder="Insert the Training Data"></textarea>
+
+        <input type="submit" class="ghost-button" value="Train the Model">
+      </form>
+      <% if(Result!== null){ %>
+      <p>
+        <%= Result %>
+      </p>
+      <% } %>
+
+      <% if(error !== null){ %>
+      <p>
+        <%= error %>
+      </p>
+      <% } %>
+    </fieldset>
+  </div>
+</body>
+
+</html>
