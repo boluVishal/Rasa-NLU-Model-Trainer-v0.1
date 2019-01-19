@@ -1,4 +1,4 @@
-# Rasa-NLU-Model-Trainer
+# Rasa-NLU-Model-Trainer v0.1
 Training Rasa NLU data using the train api
 
 git clone or download the code & then follow the below steps :
