@@ -1,15 +1,44 @@
-# Rasa-NLU-Model-Trainer v0.1
-Training Rasa NLU data using the train api
+# Rasa NLU Model Trainer
 
-git clone or download the code & then follow the below steps :
-- run 'npm install' to install the required modules.
-- run 'npm start' to run the project.
+A small Express app for sending JSON training data to the legacy Rasa NLU HTTP API. It is useful when working with older Rasa projects that still expose the `/train` endpoint.
 
-you can get the Rasa NLU Model Trainer running on : http://localhost:3000
+This project targets the pre-1.0 Rasa NLU API. It does not support current YAML training files or the modern unified `rasa` CLI.
 
+## Run it locally
 
-you can read more here : https://rasa.com/docs/nlu/http/#post-train
+You need Node.js and a Rasa NLU server listening on port `5000`.
 
-https://youtu.be/uiA5yONQgOc
+```bash
+npm install
+npm start
+```
 
-Note : the above code supports only for JSON training data format and not for yml or md format.
+Open `http://localhost:3000`, paste JSON training data into the form, and submit it. `trainData.json` is included as a sample.
+
+If Rasa is running elsewhere, set its base URL before starting the app:
+
+```bash
+RASA_URL=http://localhost:5000 npm start
+```
+
+On PowerShell:
+
+```powershell
+$env:RASA_URL = "http://localhost:5000"
+npm start
+```
+
+The web app port can be changed with the `PORT` environment variable.
+
+## Project layout
+
+- `server.js` - Express server and call to the Rasa training endpoint
+- `views/index.ejs` - training form and result view
+- `public/style.css` - page styling
+- `trainData.json` - example JSON training data
+
+## Limitations
+
+- JSON input only; Markdown and YAML training formats are not handled.
+- The backend uses the retired `request` package because this repository preserves an older Rasa integration.
+- There is no authentication. Run it locally or behind a trusted proxy.
